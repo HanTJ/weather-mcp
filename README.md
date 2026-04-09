@@ -1,38 +1,38 @@
 # Weather-MCP
 
-A Model Context Protocol (MCP) server for retrieving current weather information based on your IP location.
+IP 위치를 기반으로 현재 날씨 정보를 조회하는 Model Context Protocol (MCP) 서버입니다.
 
-## Features
+## 주요 기능
 
-- **IP-based Location Detection**: Automatically detects your approximate location using your IP address
-- **Current Weather Data**: Provides temperature, humidity, dew point, and weather conditions
-- **Open-Meteo API**: Uses the free Open-Meteo API for weather data (no API key required)
+- **IP 기반 위치 감지**: IP 주소를 사용하여 사용자의 대략적인 위치를 자동으로 감지
+- **현재 날씨 데이터**: 기온, 습도, 이슬점, 날씨状況 제공
+- **Open-Meteo API**: 무료 Open-Meteo API 사용 (API 키 필요 없음)
 
-## Installation
+## 설치
 
 ```bash
-# Clone the repository
+# 저장소 클론
 git clone https://github.com/HanTJ/weather-mcp.git
 cd weather-mcp
 
-# Install dependencies using uv
+# uv를 사용하여 의존성 설치
 uv sync
 
-# Or install directly
+# 또는 직접 설치
 uv add fastmcp requests
 ```
 
-## Usage
+## 사용 방법
 
-### Run as MCP Server
+### MCP 서버로 실행
 
 ```bash
 uv run python main.py
 ```
 
-### Use with Claude/OpenCode
+### Claude/OpenCode에서 사용
 
-Configure your MCP client to connect to this server:
+MCP 클라이언트에 서버 연결 설정:
 
 ```json
 {
@@ -45,33 +45,33 @@ Configure your MCP client to connect to this server:
 }
 ```
 
-### Get Weather
+### 날씨 조회
 
-Once connected, use the `get_weather` tool:
+연결되면 `get_weather` 도구를 사용하세요:
 
 ```
 get_weather()
 ```
 
-Returns current weather data including:
-- Temperature (°C)
-- Relative humidity (%)
-- Dew point (°C)
-- Weather condition codes
+다음 데이터를 반환합니다:
+- 기온 (°C)
+- 상대 습도 (%)
+- 이슬점 (°C)
+- 날씨 상태 코드
 
-## API Details
+## API 상세 정보
 
-- **Location**: Detected via ipinfo.io
-- **Weather Data**: Open-Meteo API (https://open-meteo.com/)
-- **Timezone**: GMT (for consistent data retrieval)
+- **위치 감지**: ipinfo.io 사용
+- **날씨 데이터**: Open-Meteo API (https://open-meteo.com/)
+- **표준 시간대**: GMT (일관된 데이터 조회)
 
-## Tech Stack
+## 기술 스택
 
 - Python 3.12+
-- [FastMCP](https://github.com/jlowin/fastmcp) - MCP framework
-- [requests](https://docs.python-requests.org/) - HTTP client
-- [uv](https://github.com/astral-sh/uv) - Package manager
+- [FastMCP](https://github.com/jlowin/fastmcp) - MCP 프레임워크
+- [requests](https://docs.python-requests.org/) - HTTP 클라이언트
+- [uv](https://github.com/astral-sh/uv) - 패키지 매니저
 
-## License
+## 라이선스
 
 MIT
